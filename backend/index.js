@@ -17,7 +17,7 @@ app.use('/api/employees', employeeRoutes);
 app.use('/api/analytics', analyticsRoutes);
 
 // Catch-all for unhandled 404 routes
-app.use('*', (req, res, next) => {
+app.use((req, res, next) => {
   const AppError = require('./utils/AppError');
   const ERROR_CODES = require('./utils/errorCodes');
   next(new AppError(ERROR_CODES.RESOURCE_NOT_FOUND, `Can't find ${req.originalUrl} on this server.`));

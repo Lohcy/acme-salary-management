@@ -1,4 +1,4 @@
-const { db, initDB } = require('./db');
+const { db, initDB } = require('./config/db');
 const { faker } = require('@faker-js/faker');
 
 const SEED_COUNT = 10000;
