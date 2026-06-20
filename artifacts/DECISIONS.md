@@ -37,3 +37,8 @@ This document outlines the core technical trade-offs made to ensure scalability,
 **Problem:** Making raw `axios` calls directly inside React components (`useEffect` hooks) leads to code duplication, scattered error handling, and components that are tightly coupled to network implementation details.
 **Decision:** Implemented a dedicated API service layer (`frontend/src/services/api.js`) using an Axios instance.
 **Rationale:** This creates a strict boundary between data fetching and UI rendering. It allows all network requests to be configured with a single `baseURL` and unified header configurations. Furthermore, if the backend routing changes or we need to implement auth-token interceptors in the future, the modifications are isolated to a single file rather than touching dozens of React components.
+
+### Frontend Resiliency: Strict State & Mount Management
+**Problem:** Asynchronous data fetching in React can lead to memory leaks if a component unmounts before the Promise resolves. Furthermore, assuming backend data is always perfectly shaped leads to silent frontend crashes (`Cannot read properties of undefined`).
+**Decision:** Implemented `isMounted` tracking within `useEffect` cleanup blocks and added strict payload validation (`response?.success && response?.data`) before updating React state. 
+**Rationale:** This fulfills the fail-safe UI requirement. It guarantees the application will not attempt to mutate the state of unmounted components, and it gracefully traps malformed API responses into localized Error States rather than unmounting the entire DOM tree via a raw JS exception. Used standard `Intl.NumberFormat` instead of fragile string manipulation for internationalized currency display.
