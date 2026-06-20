@@ -1,4 +1,3 @@
-// backend/seed.js
 const { db, initDB } = require('./db');
 const { faker } = require('@faker-js/faker');
 
