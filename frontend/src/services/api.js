@@ -3,7 +3,7 @@ import axios from 'axios';
 // Create a centralized Axios instance
 const apiClient = axios.create({
   // In a production app, this would be an environment variable (e.g., import.meta.env.VITE_API_URL)
-  baseURL: 'http://localhost:5000/api',
+  baseURL: 'http://localhost:5001/api',
   headers: {
     'Content-Type': 'application/json',
   },
