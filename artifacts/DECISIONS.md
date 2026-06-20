@@ -32,3 +32,8 @@ This document outlines the core technical trade-offs made to ensure scalability,
 **Options Considered:** Client-Side Pagination (Rejected: browser freezing) vs. Cursor-Based Pagination (Rejected: prevents jumping to specific pages) vs. Offset-Based Pagination.
 **Decision:** Implemented **Server-Side Offset Pagination** paired with a hard ceiling (`MAX_LIMIT = 100`).
 **Rationale:** Modern React data grids require random-access page navigation. For a strictly indexed 10,000-row SQLite database, the `OFFSET` execution remains in the sub-millisecond range. The UX benefit of allowing the HR Manager to jump directly to any page outweighs the theoretical performance gain of a cursor. Furthermore, strictly capping the limit prevents intentional Denial-of-Service (DoS) queries from pulling the entire dataset into the Node.js memory heap.
+
+### Frontend Architecture: Centralized API Service Layer
+**Problem:** Making raw `axios` calls directly inside React components (`useEffect` hooks) leads to code duplication, scattered error handling, and components that are tightly coupled to network implementation details.
+**Decision:** Implemented a dedicated API service layer (`frontend/src/services/api.js`) using an Axios instance.
+**Rationale:** This creates a strict boundary between data fetching and UI rendering. It allows all network requests to be configured with a single `baseURL` and unified header configurations. Furthermore, if the backend routing changes or we need to implement auth-token interceptors in the future, the modifications are isolated to a single file rather than touching dozens of React components.
