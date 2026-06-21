@@ -1,5 +1,5 @@
-// frontend/src/App.jsx
 import AnalyticsDashboard from './components/Dashboard/AnalyticsDashboard';
+import EmployeeGrid from './components/Dashboard/EmployeeGrid';
 
 function App() {
   return (
@@ -13,7 +13,7 @@ function App() {
 
         <main>
           <AnalyticsDashboard />
-          {/* We will mount the EmployeeGrid here next! */}
+          <EmployeeGrid /> {/* <-- Add the component here */}
         </main>
 
       </div>
