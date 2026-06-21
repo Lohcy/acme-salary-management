@@ -17,8 +17,8 @@ All planning, architectural decisions, and AI usage logs required by the assessm
 ---
 
 ## 🛠️ Technical Stack
-* **Frontend:** ReactJS (Vite) for rapid, component-driven UI development.
-* **Backend:** Node.js with Express for lightweight API routing.
+* **Frontend:** React 18, Vite, Tailwind CSS v4, Axios, Vitest, React Testing Library
+* **Backend:** Node.js, Express, SQLite3, Jest, Supertest
 * **Database:** SQLite with optimized bulk seeding and B-Tree indexing.
 * **Testing:** Jest and Supertest for deterministic API validation.
 
@@ -37,7 +37,7 @@ npm install
 npm run seed
 npm run dev
 \`\`\`
-The backend will start on http://localhost:5000.
+The backend will start on http://localhost:5001
 
 **Frontend Setup:**
 In a separate terminal window, initialize the React client.
@@ -47,7 +47,7 @@ cd frontend
 npm install
 npm run dev
 \`\`\`
-
+The UI will start on http://localhost:5173
 ---
 
 ## 🧪 Testing
@@ -55,5 +55,12 @@ Unit tests are configured to validate core analytical functions and API response
 
 \`\`\`bash
 cd backend
+npm run test
+\`\`\`
+
+The frontend test suite isolates and validates complex React lifecycle events, including the viewport math hook, asynchronous UI state changes, and localized currency formatting.
+
+\`\`\`bash
+cd frontend
 npm run test
 \`\`\`
