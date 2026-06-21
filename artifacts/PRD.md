@@ -12,6 +12,7 @@ Build a robust web application that enables the ACME organization's HR team to e
 * **Advanced Filtering:** Filter employees by attributes such as Country and Department.
 * **Salary Analytics Dashboard:** A summary view providing immediate answers to HR questions (e.g., Average salary by country/department).
 * **Seeding Mechanism:** Automated script to populate the database with 10,000 mock records upon initialization.
+* **KPI Analytics Dashboard:** Real-time aggregation of organizational metrics (Total Headcount, Total Payroll, Average Salary).
 
 ## 4. Technical Stack
 * **Frontend:** ReactJS (Vite)
