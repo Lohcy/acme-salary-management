@@ -2,10 +2,6 @@
 
 This repository contains an end-to-end web application designed to help ACME's HR team manage and analyze salary data for 10,000 global employees. The solution prioritizes high-performance data retrieval and clear architectural boundaries using a Node.js and React stack.
 
-## 🚀 Readiness Links
-* **Live Deployment:** [Insert Vercel/Render Link Here]
-* **Video Walkthrough:** [Insert Loom/YouTube Link Here]
-
 ---
 
 ## 📂 Required Artifacts
