@@ -24,6 +24,18 @@ All planning, architectural decisions, and AI usage logs required by the assessm
 
 ---
 
+### 🐳 One-Click Docker Deployment (Recommended for Evaluators)
+For an isolated, zero-friction setup, you can launch the entire production-ready stack using Docker Compose. This utilizes a multi-stage Nginx build for the frontend and automatically seeds the SQLite database.
+
+Ensure Docker Desktop is running, then execute from the root directory:
+\`\`\`bash
+docker-compose up --build
+\`\`\`bash
+
+The UI will be instantly available at http://localhost:5173
+The API will be safely isolated on http://localhost:5001
+
+---
 ## 💻 Local Setup Instructions
 
 **Prerequisites:** Node.js (v18+) and npm installed on your machine.

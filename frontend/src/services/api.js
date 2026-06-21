@@ -1,9 +1,10 @@
 import axios from 'axios';
 
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || 'http://localhost:5001/api';
 // Create a centralized Axios instance
 const apiClient = axios.create({
   // In a production app, this would be an environment variable (e.g., import.meta.env.VITE_API_URL)
-  baseURL: 'http://localhost:5001/api',
+  baseURL: API_BASE_URL,
   headers: {
     'Content-Type': 'application/json',
   },
