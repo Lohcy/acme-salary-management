@@ -42,3 +42,8 @@ This document outlines the core technical trade-offs made to ensure scalability,
 **Problem:** Asynchronous data fetching in React can lead to memory leaks if a component unmounts before the Promise resolves. Furthermore, assuming backend data is always perfectly shaped leads to silent frontend crashes (`Cannot read properties of undefined`).
 **Decision:** Implemented `isMounted` tracking within `useEffect` cleanup blocks and added strict payload validation (`response?.success && response?.data`) before updating React state. 
 **Rationale:** This fulfills the fail-safe UI requirement. It guarantees the application will not attempt to mutate the state of unmounted components, and it gracefully traps malformed API responses into localized Error States rather than unmounting the entire DOM tree via a raw JS exception. Used standard `Intl.NumberFormat` instead of fragile string manipulation for internationalized currency display.
+
+### Quality Assurance: Deterministic API Testing
+**Problem:** Tests that rely on a live database are brittle, slow, and non-deterministic (they fail if the database isn't seeded locally). 
+**Decision:** Implemented an integration test suite using **Jest and Supertest**, utilizing `jest.mock()` to completely stub the SQLite data layer.
+**Rationale:** This ensures the tests are exclusively evaluating the Express HTTP routing, middleware validation (e.g., the 100-limit cap), and the global error-handling contract. The tests run in milliseconds, do not require disk I/O, and are guaranteed to be deterministic regardless of the environment they are executed in, strictly fulfilling the assessment's QA requirements.
