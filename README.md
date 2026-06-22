@@ -2,8 +2,10 @@
 
 This repository contains an end-to-end web application designed to help ACME's HR team manage and analyze salary data for 10,000 global employees. The solution prioritizes high-performance data retrieval and clear architectural boundaries using a Node.js and React stack.
 
----
+## 🚀 Readiness Links
+* **Video Walkthrough:** https://drive.google.com/file/d/1aHGh9XXEW7SA9URmfFoRm2gtA9zhpQxg/view
 
+---
 ## 📂 Required Artifacts
 All planning, architectural decisions, and AI usage logs required by the assessment are located in the `/artifacts` directory.
 * [Product Requirements Document (PRD)](./artifacts/PRD.md)
